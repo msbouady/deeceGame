@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DEE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Jeu de dé</h1>
+        <p id="winner-Text"></p>
+      <div class="dice">
+        <p>Joueur 1</p>
+        <img class="img1" src="">
+      </div>
+
+      <div class="dice">
+        <p>Joueur 2</p>
+        <img class="img2" src="">
+      </div>
+      <button onclick="rollDice()" class="btn-01">Lance</button>
+    </div>
+   
+
+  </body>
+
+  <footer>
+    www 🎲 MINKALA GANE 🎲 com
+  </footer>
+  <script>
+    var tab = ["/images/dice1.png", "/images/dice2.png", "/images/dice3.png", "/images/dice4.png", "/images/dice5.png", "/images/dice6.png"];
+
+    function rollDice() {
+        var hasard1 = Math.floor(Math.random() * 6);
+        var hasard2 = Math.floor(Math.random() * 6);
+
+        var result1 = tab[hasard1];
+        var result2 = tab[hasard2];
+
+        document.querySelector('.img1').src = result1;
+        document.querySelector('.img2').src = result2;
+
+        if (hasard1 > hasard2) {
+          document.getElementById("winner-Text").textContent = "Joueur 1 à gagner";
+        } else if (hasard1 < hasard2) {
+          document.getElementById("winner-Text").textContent = "Joueur 2 à gagner";
+        } else {
+          document.getElementById("winner-Text").textContent = "egalité";
+        }
+    }
+
+    
+  </script>
+</html>
